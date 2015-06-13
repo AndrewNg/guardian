@@ -21,7 +21,7 @@ angular.module('ionic.utils', [])
   }
 }]);
 
-angular.module('Guardian', ['ionic'])
+angular.module('Guardian', ['ionic', 'Guardian.controllers', 'Guardian.services',])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
   $urlRouterProvider.otherwise('/dashboard');
@@ -34,6 +34,7 @@ angular.module('Guardian', ['ionic'])
   .state('dashboard', {
     url: '/dashboard',
     templateUrl: 'templates/dashboard.html',
+    controller: 'DashboardController'
   });
 })
 
@@ -48,7 +49,7 @@ angular.module('Guardian', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+});
 
 // declare controllers module
 angular.module('Guardian.controllers', []);
