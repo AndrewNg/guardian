@@ -21,7 +21,7 @@ angular.module('ionic.utils', [])
   }
 }]);
 
-angular.module('Guardian', ['ionic', 'Guardian.controllers', 'Guardian.services',])
+angular.module('Guardian', ['ionic', 'Guardian.controllers', 'Guardian.services'])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
   $urlRouterProvider.otherwise('/dashboard');
