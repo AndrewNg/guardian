@@ -1,9 +1,41 @@
-// Ionic Starter App
+angular.module('ionic.utils', [])
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+// create methods to manage localstorage
+.factory('$localstorage', ['$window', function($window) {
+  return {
+    set: function(key, value) {
+      $window.localStorage[key] = value;
+    },
+    get: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
+    },
+    setObject: function(key, value) {
+      $window.localStorage[key] = JSON.stringify(value);
+    },
+    getObject: function(key) {
+      return JSON.parse($window.localStorage[key] || '{}');
+    },
+    removeObject: function(key){
+      $window.localStorage.removeItem(key);
+    }
+  }
+}]);
+
+angular.module('Guardian', ['ionic'])
+
+.config(function($stateProvider, $urlRouterProvider, $httpProvider){
+  $urlRouterProvider.otherwise('/dashboard');
+
+  $stateProvider
+  .state('users', {
+    url: '/users',
+    templateUrl: 'templates/users.html',
+  })
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: 'templates/dashboard.html',
+  });
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,3 +49,9 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+// declare controllers module
+angular.module('Guardian.controllers', []);
+
+// declare services module
+angular.module('Guardian.services', []);
