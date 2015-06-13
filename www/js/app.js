@@ -21,9 +21,18 @@ angular.module('ionic.utils', [])
   }
 }]);
 
-angular.module('Guardian', ['ionic', 'Guardian.controllers', 'Guardian.services'])
+angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services'])
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider){
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicAppProvider){
+
+  // Identify app
+  $ionicAppProvider.identify({
+    // The App ID for the server
+    app_id: '9eac5d56',
+    // The API key all services will use for this app
+    api_key: '031a4ef737a980c085e25aa8d325051cf75aa89a0d0dca75'
+  });
+
   $urlRouterProvider.otherwise('/dashboard');
 
   $stateProvider
@@ -38,7 +47,7 @@ angular.module('Guardian', ['ionic', 'Guardian.controllers', 'Guardian.services'
   });
 })
 
-.run(function($ionicPlatform) {
+.run(function($rootScope, $ionicPlatform, $ionicUser, $ionicPush) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -48,6 +57,25 @@ angular.module('Guardian', ['ionic', 'Guardian.controllers', 'Guardian.services'
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+  });
+
+  $ionicPush.register({
+    canShowAlert: false, //Should new pushes show an alert on your screen?
+    canSetBadge: true, //Should new pushes be allowed to update app icon badges?
+    canPlaySound: false, //Should notifications be allowed to play a sound?
+    canRunActionsOnWake: true, // Whether to run auto actions outside the app,
+    onNotification: function(notification) {
+      // Called for each notification.
+    }
+  }, {
+    user_id: 'ionic101',
+    username: 'ionitron',
+    age: 9001
+  });
+
+  $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
+    console.log('Got token', data.token, data.platform);
+    // Do something with the token
   });
 });
 
