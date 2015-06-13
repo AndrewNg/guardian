@@ -24,7 +24,11 @@
       "locator": "https://github.com/phonegap-build/PushPlugin.git",
       "id": "com.phonegap.plugins.PushPlugin"
     },
-    "cordova-plugin-geolocation"
+    "cordova-plugin-geolocation",
+    {
+      "locator": "https://github.com/christocracy/cordova-plugin-background-geolocation.git",
+      "id": "org.transistorsoft.cordova.background-geolocation"
+    }
   ],
   "cordovaPlatforms": [
     "ios"

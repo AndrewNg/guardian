@@ -1,26 +1,22 @@
 angular.module('Guardian.services')
 
-.factory('GeolocationService', function($cordovaGeolocation){
+.factory('GeolocationService', function(){
 
   var watchLocation = function(){
-    var watchOptions = {
-      frequency : 1000,
-      timeout : 3000,
-      enableHighAccuracy: false // may cause errors if true
-    };
+    document.addEventListener("deviceready", function () {
+      function onSuccess(position) {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+      }
 
-    var watch = $cordovaGeolocation.watchPosition(watchOptions);
-    watch.then(
-      null,
-      function(err) {
-        // error
-      },
-      function(position) {
-        var lat  = position.coords.latitude;
-        var long = position.coords.longitude;
-        console.log(lat);
-        console.log(long);
-    });
+      // onError Callback receives a PositionError object
+      function onError(error) {
+          alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+      }
+
+      var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+    }, false);
   }
 
   return {

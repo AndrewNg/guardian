@@ -21,7 +21,7 @@ angular.module('ionic.utils', [])
   }
 }]);
 
-angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services',])
+angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services'])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicAppProvider){
 
