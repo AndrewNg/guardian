@@ -21,7 +21,7 @@ angular.module('ionic.utils', [])
   }
 }]);
 
-angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push'])
+angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services',])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
   $urlRouterProvider.otherwise('/dashboard');
@@ -34,6 +34,7 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.s
   .state('dashboard', {
     url: '/dashboard',
     templateUrl: 'templates/dashboard.html',
+    controller: 'DashboardController'
   });
 })
 
@@ -67,7 +68,7 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.s
     console.log('Got token', data.token, data.platform);
     // Do something with the token
   });
-})
+});
 
 // declare controllers module
 angular.module('Guardian.controllers', []);
