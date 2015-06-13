@@ -1,11 +1,53 @@
-// Ionic Starter App
+angular.module('ionic.utils', [])
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+// create methods to manage localstorage
+.factory('$localstorage', ['$window', function($window) {
+  return {
+    set: function(key, value) {
+      $window.localStorage[key] = value;
+    },
+    get: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
+    },
+    setObject: function(key, value) {
+      $window.localStorage[key] = JSON.stringify(value);
+    },
+    getObject: function(key) {
+      return JSON.parse($window.localStorage[key] || '{}');
+    },
+    removeObject: function(key){
+      $window.localStorage.removeItem(key);
+    }
+  }
+}]);
 
-.run(function($ionicPlatform) {
+angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services',])
+
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicAppProvider){
+
+  // Identify app
+  $ionicAppProvider.identify({
+    // The App ID for the server
+    app_id: '9eac5d56',
+    // The API key all services will use for this app
+    api_key: '031a4ef737a980c085e25aa8d325051cf75aa89a0d0dca75'
+  });
+
+  $urlRouterProvider.otherwise('/dashboard');
+
+  $stateProvider
+  .state('users', {
+    url: '/users',
+    templateUrl: 'templates/users.html',
+  })
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: 'templates/dashboard.html',
+    controller: 'DashboardController'
+  });
+})
+
+.run(function($rootScope, $ionicPlatform, $ionicUser, $ionicPush) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -16,4 +58,29 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+
+  $ionicPush.register({
+    canShowAlert: false, //Should new pushes show an alert on your screen?
+    canSetBadge: true, //Should new pushes be allowed to update app icon badges?
+    canPlaySound: false, //Should notifications be allowed to play a sound?
+    canRunActionsOnWake: true, // Whether to run auto actions outside the app,
+    onNotification: function(notification) {
+      // Called for each notification.
+    }
+  }, {
+    user_id: 'ionic101',
+    username: 'ionitron',
+    age: 9001
+  });
+
+  $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
+    console.log('Got token', data.token, data.platform);
+    // Do something with the token
+  });
+});
+
+// declare controllers module
+angular.module('Guardian.controllers', []);
+
+// declare services module
+angular.module('Guardian.services', []);
