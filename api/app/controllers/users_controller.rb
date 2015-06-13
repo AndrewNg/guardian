@@ -8,11 +8,11 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    render json: User.create(name: params[:name], parent: params[:parent])
   end
 
   def destroy
-    User.
+    User.find(params[:id]).destroy!
     render json: {message: 'success'}
   end
 

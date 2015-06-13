@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :users, except: [:update]
+  root to: 'application#home'
+
+  resources :users, except: [:new, :edit, :update]
   resources :trips, only: [:index]
 end
