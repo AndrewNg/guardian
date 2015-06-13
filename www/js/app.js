@@ -24,7 +24,7 @@ angular.module('ionic.utils', [])
 angular.module('Guardian', ['ionic', 'ngCordova', 'ngResource', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services'])
 
 // declare global constants
-.constant('ServerUrl', 'http://72d6ac55.ngrok.com/') // local tunnel: http://chesscademy.ngrok.io
+.constant('ServerUrl', 'http://72d6ac55.ngrok.com') // put ngrok server here
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicAppProvider){
 
