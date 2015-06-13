@@ -23,7 +23,16 @@ angular.module('ionic.utils', [])
 
 angular.module('Guardian', ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'Guardian.controllers', 'Guardian.services',])
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider){
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicAppProvider){
+
+  // Identify app
+  $ionicAppProvider.identify({
+    // The App ID for the server
+    app_id: '9eac5d56',
+    // The API key all services will use for this app
+    api_key: '031a4ef737a980c085e25aa8d325051cf75aa89a0d0dca75'
+  });
+
   $urlRouterProvider.otherwise('/dashboard');
 
   $stateProvider
