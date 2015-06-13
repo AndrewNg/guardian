@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  resources :users, except: [:update]
-  resources :trips, only: [:index]
+  root to: 'application#home'
+
+  resources :users, except: [:new, :edit, :update]
+  resources :trips, only: [:index] do
+    collection do
+      get :recent
+    end
+  end
 end
