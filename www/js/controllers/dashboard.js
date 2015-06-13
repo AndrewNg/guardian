@@ -1,9 +1,6 @@
 angular.module('Guardian.controllers')
 
 .controller('DashboardController', function($scope, GeolocationService, UsersService){
-
-  $scope.testText = "test scope";
-
   $scope.getUser = function() {
     UsersService.get({id: 1})
     .$promise.then(function(data) {
