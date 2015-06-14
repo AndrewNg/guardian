@@ -1,12 +1,60 @@
-<ion-view view-title="Dashboard" can-swipe-back="false" ng-controller="DashboardController">
-  <ion-list>
+<ion-view view-title="Dashboard" can-swipe-back="false" ng-controller="DashboardController" id="family">
+  <ion-header-bar class="bar-family header-bar">
+    <h1 class="title page-title">Smith Family</h1>
+  </ion-header-bar>
+  <!-- <ion-list>
     <ion-item ng-repeat = "user in users">
       <h2>{{user.name}}</h2>
     </ion-item>
-  </ion-list>
-  <ion-footer-bar>
+  </ion-list> -->
+
+ <ion-content scroll="false" id="family-section">
+  <div class="car-status">
+    <img src="img/car-icon.svg"/>
+    <h1>
+      Car Status: Parked
+    </h1>
+  </div>
+  <div class="row parents">
+    <div class="col col-50">
+      <div class="parent">
+        <img src="img/father.jpg"/>
+        <span class="driving-pulse"></span>
+        <h1>Drew</h1>
+      </div>
+    </div>
+    <div class="col col-50">
+      <div class="parent">
+        <img src="img/mother.jpg"/>
+        <h1>Mary</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-33">
+      <div class="child">
+        <img src="img/son.jpg"/>
+        <h1>Jack</h1>
+      </div>
+    </div>
+    <div class="col col-33">
+      <div class="child">
+        <img src="img/daughter.jpg"/>
+        <h1>Jenny</h1>
+      </div>
+    </div>
+    <div class="col col-33">
+      <div class="child">
+        <img src="img/youngson.jpg"/>
+        <h1>Peter</h1>
+      </div>
+    </div>
+  </div>
+ </ion-content>
+
+  <!-- <ion-footer-bar>
   <button class="button button-light" ng-click="getUser()">
     Click me to update
   </button>
-  </ion-footer-bar>
+  </ion-footer-bar> -->
 </ion-view>

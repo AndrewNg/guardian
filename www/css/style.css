@@ -1,1 +1,96 @@
 /* Empty. Add your own CSS if you like */
+
+#family{
+  background:url('../img/bg.png') no-repeat center center;
+  width:100%;
+  height: 100%;
+}
+
+.status-bar{
+  height:20px;
+  background:red;
+}
+
+.bar-family{
+  background:rgba(255,255,255,0.15);
+}
+
+.page-title{
+  font-size:15px!important;
+  color:#333b41!important;
+}
+
+.car-status{
+  margin:50px;
+}
+
+.car-status img{
+  width:50px;
+  display: block;
+  margin:0px auto;
+}
+
+.car-status h1{
+  font-size:12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color:#7a8b97;
+  font-weight: bold;
+  text-align: center;
+}
+
+.parents{
+  margin-bottom:40px;
+}
+
+span.driving-pulse{
+  width:20px;
+  height:20px;
+  border-radius:20px;
+  background:#59ABE3;
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes pulsate {
+  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+  50% {opacity: 1.0;}
+  100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+.parent{
+  position:relative;
+}
+
+.parent img+span.driving-pulse{
+  position:absolute;
+  top:0px;
+  right:45px;
+}
+
+.parent h1, .child h1{
+  font-size:12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color:#fefefe;
+  font-weight: bold;
+  text-align: center;
+}
+
+.parent img{
+  margin:0px auto;
+  text-align: center;
+  display: block;
+  width:100px;
+  height:100px;
+  border-radius: 100%;
+}
+
+.child img{
+  margin:0px auto;
+  text-align: center;
+  display: block;
+  width:75px;
+  height: 75px;
+  border-radius:100%;
+}
