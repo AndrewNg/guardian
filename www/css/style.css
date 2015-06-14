@@ -15,6 +15,14 @@
   background:rgba(255,255,255,0.15);
 }
 
+.add-member button, .modal-close button{
+  opacity: 1!important;
+  font-size:20px!important;
+  border:none!important;
+  background:none!important;
+  padding:none!important;
+}
+
 .page-title{
   font-size:15px!important;
   color:#333b41!important;
