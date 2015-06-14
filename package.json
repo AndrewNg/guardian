@@ -28,6 +28,10 @@
     {
       "locator": "https://github.com/christocracy/cordova-plugin-background-geolocation.git",
       "id": "org.transistorsoft.cordova.background-geolocation"
+    },
+    {
+      "locator": "https://github.com/leecrossley/cordova-plugin-touchid.git",
+      "id": "cordova-plugin-touchid"
     }
   ],
   "cordovaPlatforms": [

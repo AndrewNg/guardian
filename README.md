@@ -3,3 +3,4 @@ Parental control for teenage drivers. Created for the "Hack With the Best" hacka
 Plugins Added:
 https://github.com/phonegap-build/PushPlugin.git
 https://github.com/apache/cordova-plugin-geolocation
+https://github.com/leecrossley/cordova-plugin-touchid.git

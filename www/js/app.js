@@ -56,7 +56,7 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ngResource', 'ionic.service.c
   });
 })
 
-.run(function($rootScope, $ionicPlatform, $ionicUser, $ionicPush) {
+.run(function($rootScope, $ionicPlatform, $ionicUser, $ionicPush, $cordovaTouchID) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -66,6 +66,17 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ngResource', 'ionic.service.c
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    $cordovaTouchID.checkSupport().then(function() {
+      // success, TouchID supported
+    }, function (error) {
+      alert(error); // TouchID not supported
+    });
+
+    $cordovaTouchID.authenticate("Authenticate").then(function() {
+      // success
+    }, function () {
+      // error
+    });
   });
 
   $ionicPush.register({
