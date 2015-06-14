@@ -42,6 +42,7 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ngResource', 'ionic.service.c
   .state('users', {
     url: '/users',
     templateUrl: 'templates/users.html',
+    controller: 'UsersController'
   })
   .state('dashboard', {
     url: '/dashboard',

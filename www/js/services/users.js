@@ -1,7 +1,8 @@
 angular.module('Guardian.services')
 
 .factory('UsersService', function ($resource, ServerUrl) {
-  return data = $resource(ServerUrl + '/users/:id', {id: '@id', format: 'json'}, {
-    get   : { method: 'GET', isArray: false}
+  return data = $resource(ServerUrl + '/users', {format: 'json'}, {
+    query : {method: 'GET', isArray: true},
+    get   : { method: 'GET', params:{id: '@id'}, isArray: false}
   });
 });

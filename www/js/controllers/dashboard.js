@@ -1,12 +1,13 @@
 angular.module('Guardian.controllers')
 
 .controller('DashboardController', function($scope, GeolocationService, UsersService){
+  $scope.testText = "Hi";
+
   $scope.getUser = function() {
-    UsersService.get({id: 1})
+    UsersService.query()
     .$promise.then(function(data) {
-      console.log(data);
-      console.log("connected with your backend ;)")
-      $scope.testText = data.name + " connected with your backend ;)";
+       $scope.users = data;
+       console.log($scope.users);
     });
   }
 
