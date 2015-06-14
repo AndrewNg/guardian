@@ -1,6 +1,9 @@
 <ion-view view-title="Dashboard" can-swipe-back="false" ng-controller="DashboardController" id="family">
   <ion-header-bar class="bar-family header-bar">
     <h1 class="title page-title">Smith Family</h1>
+    <div class="buttons add-member" ng-click="addMember()">
+      <button class="button button-small icon-right ion-plus-round" ng-click="closeSettings()"></button>
+    </div>
   </ion-header-bar>
   <!-- <ion-list>
 =======
@@ -17,7 +20,7 @@
     <div class="car-status">
       <img src="img/car-icon.svg"/>
       <h1>
-        Car Status: Parked
+        Car Status: Driving
       </h1>
     </div>
   </a>
