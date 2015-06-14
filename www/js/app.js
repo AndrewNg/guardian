@@ -48,6 +48,11 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ngResource', 'ionic.service.c
     url: '/dashboard',
     templateUrl: 'templates/dashboard.html',
     controller: 'DashboardController'
+  })
+  .state('car', {
+    url: '/car',
+    templateUrl: 'templates/car.html',
+    controller: 'CarController'
   });
 })
 

@@ -1,4 +1,4 @@
-<ion-view view-title="Dashboard" can-swipe-back="false" ng-controller="DashboardController">
+<ion-view view-title="Dashboard" can-swipe-back="false">
   <ion-list>
     <ion-item ng-repeat = "user in users">
       <h2>{{user.name}}</h2>
@@ -7,6 +7,9 @@
   <ion-footer-bar>
   <button class="button button-light" ng-click="getUser()">
     Click me to update
+  </button>
+  <button class="button button-light" href="#/car">
+    Car
   </button>
   </ion-footer-bar>
 </ion-view>

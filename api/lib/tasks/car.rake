@@ -4,7 +4,10 @@ namespace :car do
     count = 0
 
     while true
-      datum = data[count]
+      datum = data["responses"][count]
+      puts datum
+
+      sleep(1.second)
 
       count += 1
       count = 0 if count >= data.length
