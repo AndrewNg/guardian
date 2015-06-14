@@ -39,6 +39,10 @@
   text-align: center;
 }
 
+.car-link{
+  text-decoration: none;
+}
+
 .parents{
   margin-bottom:40px;
 }
