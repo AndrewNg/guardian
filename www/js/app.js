@@ -40,7 +40,7 @@ angular.module('Guardian', ['ionic', 'ngCordova', 'ngResource', 'ionic.service.c
 
   $stateProvider
   .state('users', {
-    url: '/users',
+    url: '/users/:id',
     templateUrl: 'templates/users.html',
     controller: 'UsersController'
   })

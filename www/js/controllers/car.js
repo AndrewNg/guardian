@@ -1798,13 +1798,28 @@ angular.module('Guardian.controllers')
     "Ignition_State" : 4,
     "Turn_Indicator_State" : 0
   }
-  ]
-}
+    ]
+  }
+
+ function initialize() {
+    var mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(-34.397, 150.644)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
   var i = 0;
 
   setInterval(function() {
     console.log(data["responses"][i]);
     i += 1;
-  }, 1000)
+    if (i >= data["responses"].length)
+      i = 0;
+  }, 1000);
+
 
 });

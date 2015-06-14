@@ -98,3 +98,8 @@ span.driving-pulse{
   height: 75px;
   border-radius:100%;
 }
+
+#map-canvas {
+  height: 400px;
+  width: 500px;
+}
